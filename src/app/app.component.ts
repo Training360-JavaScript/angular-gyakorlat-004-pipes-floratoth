@@ -1,3 +1,4 @@
+import { ValueTransformer } from '@angular/compiler/src/util';
 import { Component } from '@angular/core';
 import { User } from './model/user';
 import { UserService } from './service/user.service';
@@ -37,6 +38,6 @@ export class AppComponent {
    * @returns {void}
    */
    onChangePhrase(event: Event): void {
-    this.phrase = `${event.target}`;
+    this.phrase = (event.target as HTMLInputElement).value;
    }
 }

@@ -1,9 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
 })
-export class FilterPipe<T extends {[key: string]: any}> implements PipeTransform {
+export class FilterPipe<T extends { [key: string]: any }>
+  implements PipeTransform
+{
   /**
    * A kapott tömb szűrése a szűrőkifejezés alapján.
    * @param value {any[]} - a szűrendő tömb
@@ -19,11 +21,10 @@ export class FilterPipe<T extends {[key: string]: any}> implements PipeTransform
      * Ellenőrzés: ha a value nem tömb, vagy nincs megadva a phrase vagy a key,
      * térj vissza a value változóval.
      */
-    console.log("value", value);
+    console.log('value', value);
     if (!Array.isArray(value) || !phrase || !key) {
       return value;
     }
-
 
     /**
      * FELADAT!
@@ -32,13 +33,11 @@ export class FilterPipe<T extends {[key: string]: any}> implements PipeTransform
      * 2. A visszatérési érték true, ha valahol szerepel benne a phrase.
      * TIPP: az összehasonlítás előtt a két értéket alakítsd kisbetűsre.
      */
-    const filteredData = value.filter( item => {
+    return value.filter((item) => {
       const data = String(item[key]).toLowerCase();
-      return data.includes(phrase.toLowerCase());
-    })
-
-    console.log("filteredData", filteredData);
-    return filteredData;
+      const phraseLower = phrase.toLowerCase();
+      console.log("phraseLower", phraseLower);
+      return data.includes(phraseLower);
+    });
   }
-
 }
