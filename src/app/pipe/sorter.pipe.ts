@@ -3,14 +3,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'sorter',
 })
-export class SorterPipe<T extends {[key: string]: any}> implements PipeTransform {
+export class SorterPipe implements PipeTransform {
   /**
    * A kapott tömb rendezése a szűrőkifejezés alapján.
    * @param value {any[]} - a tömb
    * @param key {string} - az objektumkulcs, amely alapján rendez
    * @returns {any[]} - a kulcs alapján rendezett tömb
    */
-  transform(value: T[], key: string): T[] {
+  transform(value: any[], key: string): any[] {
     //console.log('value', value);
     //console.log('key', key);
     // A KÖVETKEZŐ SORT TÁVOLÍTSD EL!!!

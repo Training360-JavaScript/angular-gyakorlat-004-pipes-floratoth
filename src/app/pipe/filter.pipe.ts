@@ -3,9 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'filter',
 })
-export class FilterPipe<T extends { [key: string]: any }>
-  implements PipeTransform
-{
+export class FilterPipe implements PipeTransform {
   /**
    * A kapott tömb szűrése a szűrőkifejezés alapján.
    * @param value {any[]} - a szűrendő tömb
@@ -13,7 +11,7 @@ export class FilterPipe<T extends { [key: string]: any }>
    * @param key {string} - az objektumkulcs, amely alapján szűr
    * @returns {any[]} - a kifejezés alapján szűrt tömb
    */
-  transform(value: T[], phrase: string, key: string = ''): T[] {
+  transform(value: any[], phrase: string, key: string = ''): any[] {
     // A KÖVETKEZŐ SORT TÁVOLÍTSD EL!!!
 
     /**
@@ -36,7 +34,7 @@ export class FilterPipe<T extends { [key: string]: any }>
     return value.filter((item) => {
       const data = String(item[key]).toLowerCase();
       const phraseLower = phrase.toLowerCase();
-      console.log("phraseLower", phraseLower);
+      console.log('phraseLower', phraseLower);
       return data.includes(phraseLower);
     });
   }
