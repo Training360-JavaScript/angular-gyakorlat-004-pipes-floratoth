@@ -20,7 +20,7 @@ export class SorterPipe<T extends {[key: string]: any}> implements PipeTransform
      * Ellenőrzés: ha a value nem tömb vagy nincs megadva a key,
      * térj vissza a value változóval.
      */
-    if (!Array.isArray(value) || !key) {
+    if (!Array.isArray(value) || key === '') {
       return value;
     }
 

@@ -22,7 +22,7 @@ export class FilterPipe<T extends { [key: string]: any }>
      * térj vissza a value változóval.
      */
     console.log('value', value);
-    if (!Array.isArray(value) || !phrase || !key) {
+    if (!Array.isArray(value) || phrase === '' || key === '') {
       return value;
     }
 
